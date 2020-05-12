@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-spacing */
 const defaultSaver = require('./saver/log_saver');
 const inputMetric = require('./metrics/input');
 const outputMetric = require('./metrics/output');
