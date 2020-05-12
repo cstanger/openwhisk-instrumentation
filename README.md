@@ -49,11 +49,9 @@ By default, the collected metrics get logged to the Stdout:
 "2020-05-11T16:08:36.8221925Z   stdout: METRIC CPUTIME_USER 193",
 "2020-05-11T16:08:36.8226241Z   stdout: METRIC CPUTIME_SYSTEM 31",
 "2020-05-11T16:08:36.8228241Z   stdout: METRIC MEMORY 31",
-
-
 ```
 
-See [Storing metrics](#storing metrics) for an additional configuration to send out metric values to an external service using HTTP POST requests.
+See [Storing metrics](#storing-metrics) for an additional configuration to send out metric values to an external service using HTTP POST requests.
 
 ## Configuration
 
@@ -87,7 +85,7 @@ A custom metric need to have the following convention:
 }
 ```
 
-`pre` will be executed with invocation parameters before the wrapped function and `post` will be executed with return after invocation. An example can be found [here](./metrics/sampleMetric.js)
+`pre` will be executed with invocation parameters before the wrapped function and `post` will be executed with return after invocation. An example can be found [here](./metrics/sampleMetric.js).
 
 ## Storing metrics
 
