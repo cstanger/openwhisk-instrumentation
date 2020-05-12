@@ -128,4 +128,34 @@ config.saver = saverExporter({
 
 ### Performance Comparison
 
-tbc.
+Both, logging and exporting via HTTP, must be evaluated and compared with a non-instrumented function in order to obtain a conclusion about the performance overhead of each alternative.
+
+The instrumentation module was benchmarked using OpenWhisk deployed on a Google managed Kubernetes Cluster (GKE) made up of three 1-standard-1 instances, with each having 1 vCPU and 3.75 GB memory.
+
+The very elementary greeting function was used as a reference. Beside that, two versions of the same functions were instrumented the openwhisk-instrumentation module. One version had implemented the logging method and the other exported the metrics via an HTTP POST request.
+
+```javascript
+/**
+ * @params is a JSON object with optional fields "name" and "place".
+ * @return a JSON object containing the message in a field called "msg".
+ */
+function main(params) {
+  // log the parameters to stdout
+  console.log('params:', params);
+
+  // if a value for name is provided, use it else use a default
+  var name = params.name || 'stranger';
+
+  // if a value for place is provided, use it else use a default
+  var place = params.place || 'somewhere';
+
+  // construct the message using the values for name and place
+  return {msg: 'Hello, ' + name + ' from ' + place + '!'};
+}
+exports.main = main;
+```
+
+These three versions were invoked alternately at intervals of 60 seconds with 30 simultaneous calls each. This workload pattern allowed to evaluate cold start behaviors, as well as warm start characteristics.
+
+![Compare Initialization Time](./benchmark/InitTime_log_export.jpg)
+![Compare execution duration for warm starts](./benchmark/duration_warm_log_export.jpg)
