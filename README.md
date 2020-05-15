@@ -30,11 +30,11 @@ $ npm install openwhisk-instrumentation --save
 The module can be implemented by two lines of code: Importing the module and wrapping the exported function.
 
 ```javascript
-const {owInstrumentation, config} = require('openwhisk-instrumentation');
+const { owInstrumentation, config } = require('openwhisk-instrumentation');
 
 const main = (params) => {
   const name = params.name || 'stanger';
-  return {msg: `Hello World, ${name}!`};
+  return { msg: `Hello World, ${name}!` };
 };
 
 module.exports.main = owInstrumentation(main);
@@ -112,7 +112,7 @@ By overwriting the `saver` property on the `config` object, this option is used.
 Agents must be an object with a `save` method. This method is called with an array of metric values for each invocation.
 
 ```javascript
-const {main, config} = require('../index.js');
+const { main, config } = require('../index.js');
 const saverExporter = require('../saver/exporter_saver');
 
 config.saver = saverExporter({
@@ -150,12 +150,12 @@ function main(params) {
   var place = params.place || 'somewhere';
 
   // construct the message using the values for name and place
-  return {msg: 'Hello, ' + name + ' from ' + place + '!'};
+  return { msg: 'Hello, ' + name + ' from ' + place + '!' };
 }
 exports.main = main;
 ```
 
 These three versions were invoked alternately at intervals of 60 seconds with 30 simultaneous calls each. This workload pattern allowed to evaluate cold start behaviors, as well as warm start characteristics.
 
-![Compare Initialization Time](./benchmark/InitTime_log_export.jpg)
-![Compare execution duration for warm starts](./benchmark/duration_warm_log_export.jpg)
+![Compare Initialization Time](./benchmark/InitTime_log_export.png)
+![Compare execution duration for warm starts](./benchmark/duration_log_export.png)
