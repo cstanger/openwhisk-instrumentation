@@ -22,6 +22,10 @@ const config = {
  * @return {Object} the result of the input function fn
  */
 function main(fn) {
+  if (typeof fn === 'undefined') {
+    throw new Error('Inner Function is not defined');
+  }
+
   return async (param) => {
     const metrics = {};
     let result;
@@ -48,4 +52,4 @@ function main(fn) {
   };
 }
 
-module.exports = {main, config};
+module.exports = { main, config };
