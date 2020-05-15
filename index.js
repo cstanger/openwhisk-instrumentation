@@ -21,34 +21,32 @@ const config = {
  * @param  {Function} fn a function to wrap around
  * @return {Object} the result of the input function fn
  */
-function main(fn) {
-  if (typeof fn === 'undefined') {
+function main(fn = null) {
+  if (fn === null) {
     throw new Error('Inner Function is not defined');
   }
 
-  return async (param) => {
+  return async (params) => {
     const metrics = {};
-    let result;
     try {
       // pre
       config.calculator.forEach((calc) => {
         Object.prototype.hasOwnProperty.call(calc, 'pre') &&
-          calc.pre(param, metrics);
+          calc.pre(params, metrics);
       });
-
       // execute function
-      result = await fn(param);
+      const result = await fn(params);
 
       // post
       config.calculator.forEach((calc) => {
         Object.prototype.hasOwnProperty.call(calc, 'post') &&
           calc.post(result, metrics);
       });
+      return result;
     } finally {
       // save collected metrics
       config.saver(metrics);
     }
-    return result;
   };
 }
 
