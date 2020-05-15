@@ -1,6 +1,6 @@
 const hash = require('object-hash');
 
-module.exports = () => {
+const metric = () => {
   const name = 'inputhash';
 
   const pre = (param, collector) => {
@@ -12,3 +12,5 @@ module.exports = () => {
     pre,
   };
 };
+
+module.exports = metric;

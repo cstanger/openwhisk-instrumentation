@@ -1,4 +1,4 @@
-module.exports = () => {
+const metric = () => {
   const name = 'test';
 
   // use cache between pre and post here
@@ -15,3 +15,5 @@ module.exports = () => {
     post,
   };
 };
+
+module.exports = metric;

@@ -1,4 +1,4 @@
-module.exports = () => {
+const metric = () => {
   const name = 'coldstart';
   let coldstart = 1;
   const pre = (param, collector) => {
@@ -10,3 +10,4 @@ module.exports = () => {
     pre,
   };
 };
+module.exports = metric;

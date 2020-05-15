@@ -5,7 +5,7 @@
 // user: It is an integer represents the time elapsed by user
 // system: It is an integer represents the time elapsed by system
 
-module.exports = () => {
+const metric = () => {
   const name = 'cputime';
 
   let cache;
@@ -23,3 +23,5 @@ module.exports = () => {
     post,
   };
 };
+
+module.exports = metric;

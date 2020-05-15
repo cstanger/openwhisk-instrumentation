@@ -2,10 +2,12 @@
   "name": "openwhisk-instrumentation",
   "version": "1.0.0",
   "description": "A Node.js function wrapper to instrument OpenWhisk actions to extract metrics",
+  "engines": {
+    "node": ">12.14.1"
+  },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "try": "node test.js"
+    "build": "webpack"
   },
   "keywords": [
     "OpenWhisk",
@@ -16,13 +18,13 @@
   ],
   "author": "Christoph Stanger",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
     "webpack": "^4.43.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
     "object-hash": "^2.0.3"
   }
 }

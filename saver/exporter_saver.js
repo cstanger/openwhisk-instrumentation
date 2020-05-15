@@ -10,7 +10,7 @@ let options = {
   },
 };
 
-module.exports = (settings) => {
+const exporter = (settings) => {
   if (settings) {
     options = settings;
   }
@@ -28,3 +28,5 @@ module.exports = (settings) => {
     req.end();
   };
 };
+
+module.exports = exporter;
