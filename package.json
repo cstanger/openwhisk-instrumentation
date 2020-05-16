@@ -5,9 +5,14 @@
   "engines": {
     "node": ">12.14.1"
   },
+  "homepage": "https://github.com/cstanger/openwhisk-instrumentation",
+  "deprecated": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cstanger/openwhisk-instrumentation.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "main": "index.js",
   "scripts": {
@@ -32,5 +37,6 @@
   },
   "dependencies": {
     "object-hash": "^2.0.3"
-  }
+  },
+  "bundleDependencies": true
 }
