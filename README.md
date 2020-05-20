@@ -33,7 +33,7 @@ The module can be implemented by two lines of code: Importing the module and wra
 const { owInstrumentation, config } = require('openwhisk-instrumentation');
 
 const main = (params) => {
-  const name = params.name || 'stanger';
+  const name = params.name || 'stranger';
   return { msg: `Hello World, ${name}!` };
 };
 

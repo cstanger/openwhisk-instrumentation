@@ -21,7 +21,7 @@ const config = {
  * @param  {Function} fn a function to wrap around
  * @return {Object} the result of the input function fn
  */
-function main(fn = null) {
+function owInstrumentation(fn = null) {
   if (fn === null) {
     throw new Error('Inner Function is not defined');
   }
@@ -50,4 +50,4 @@ function main(fn = null) {
   };
 }
 
-module.exports = { main, config };
+module.exports = { owInstrumentation, config };
