@@ -2,17 +2,18 @@ const metric = () => {
   const name = 'memory';
 
   let interval;
-
   const pre = () => {
+    interval = setInterval(collectMem, 10);
     collectMem();
-    interval = setInterval(collectMem, 100);
   };
   const post = (result, collector) => {
     clearInterval(interval);
-    const sum = mem.reduce((pre, sum) => (sum += pre));
-    const memoryAvg = sum / mem.length / 1024 / 1024;
+    collectMem();
+    // const sum = mem.reduce((pre, sum) => (sum += pre), 0);
+    // collector[name] = Math.round((sum / mem.length / 1024 / 1024) * 100) / 100;
+    collector[name] =
+      (Math.round(mem[mem.length - 1] / 1024 / 1024) * 100) / 100;
     mem = [];
-    collector[name] = memoryAvg;
   };
   return {
     name,
