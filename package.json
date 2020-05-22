@@ -1,6 +1,6 @@
 {
   "name": "openwhisk-instrumentation",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Node.js function wrapper to instrument OpenWhisk actions to extract metrics",
   "engines": {
     "node": ">12.14.1"
